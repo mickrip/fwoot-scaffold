@@ -10,7 +10,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "git@bitbucket.org:mickrip/fwoot-classes.git"
+            "url": "https://github.com/mickrip/fwoot-core"
         }
     ],
     "minimum-stability": "dev"

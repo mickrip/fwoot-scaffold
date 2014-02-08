@@ -1,4 +1,4 @@
 What to do
 ==========
 
-composer create-project --repository-url=http://satis.mickrip.com/ -sdev mickrip/fwoot-framework target_path
+composer create-project mickrip/fwoot-scaffold path/to/www
