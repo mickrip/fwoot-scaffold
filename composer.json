@@ -5,7 +5,7 @@
     "keywords": ["framework", "fwoot"],
     "license": "MIT",
     "require": {
-        "mickrip/fwoot": "@dev"
+        "mickrip/fwoot-core": "@dev"
     },
     "repositories": [
         {
