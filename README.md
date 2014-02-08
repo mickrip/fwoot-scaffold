@@ -1,4 +1,5 @@
-What to do
-==========
+Installation
+============
 
-composer create-project mickrip/fwoot-scaffold path/to/www
+composer create-project -s dev mickrip/fwoot-scaffold {{target_dir}}
+
