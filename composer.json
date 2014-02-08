@@ -1,0 +1,17 @@
+{
+    "name": "mickrip/fwoot-framework",
+    "description": "Fwoot Scaffolding default for project.",
+    "type": "project",
+    "keywords": ["framework", "fwoot"],
+    "license": "MIT",
+    "require": {
+        "mickrip/fwoot": "@dev"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@bitbucket.org:mickrip/fwoot-classes.git"
+        }
+    ],
+    "minimum-stability": "dev"
+}

@@ -1,0 +1,4 @@
+composer.lock
+.idea/*
+vendor/*
+bower_components
