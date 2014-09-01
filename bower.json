@@ -14,14 +14,13 @@
         "jquery": "*",
         "modernizr": "*",
         "requirejs": "*",
-        "bootstrap": "3.0",
+        "bootstrap-sass-official": "*",
         "font-awesome": "*",
         "jquery-backstretch": "*",
         "blockui": "*",
         "html5shiv": "*",
         "parsleyjs": "*",
         "magnific-popup": "*",
-        "bootstrap3-datetimepicker": "*",
-        "jquery.lazyload": "*"
+        "bootstrap3-datetimepicker": "*"
     }
 }

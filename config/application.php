@@ -1,5 +1,12 @@
 <?php
-if (isset($_SERVER["is_dev"])) { // How do you determine if this is dev?
+
+if (strpos($_SERVER["SERVER_ADDR"], "192.168") !== false) {
+    $is_dev = true;
+} else {
+    $is_dev = false;
+}
+
+if ($is_dev) { // How do you determine if this is dev?
     return array(
         "base" => "/fwoot/", // surround by slashes
         "cdn" => "http://192.168.1.48/fwoot", // no slash at end

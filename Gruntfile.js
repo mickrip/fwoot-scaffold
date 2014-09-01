@@ -1,20 +1,35 @@
 module.exports = function (grunt) {
 
+    var mozjpeg = require('imagemin-mozjpeg');
+    var version = Date.now();
+
     // Project configuration.
     grunt.initConfig({
+        clean: {
+            build: [
+                'assets/dist/'
+            ]
+        },
+        coffee: {
 
-        less: {
-            development: {
+            compileJoined: {
                 options: {
-                    compress: false,
-                    yuicompress: false
-                    //optimization: 2
+                    join: true
                 },
                 files: {
-                    // target.css file: source.less file
-                    "assets/site.css": "assets/site.less"
+                    'assets/dist/js/joined.js': 'assets/src/coffee/joined/**/*.coffee'
                 }
+            },
+            glob_to_multiple: {
+                expand: true,
+                flatten: true,
+                cwd: 'assets/src/coffee',
+                src: ['*.coffee'],
+                dest: 'assets/dist/js',
+                ext: '.js'
             }
+
+
         },
         watch: {
             styles: {
@@ -31,26 +46,72 @@ module.exports = function (grunt) {
                     optimizationLevel: 3,
                     use: [mozjpeg()]
                 },
-                files: {                         // Dictionary of files
-                    'dist/img.png': 'src/img.png', // 'destination': 'source'
-                    'dist/img.jpg': 'src/img.jpg',
-                    'dist/img.gif': 'src/img.gif'
-                }
+                files: {}
             },
             dynamic: {                         // Another target
-                files: [{
-                    expand: true,                  // Enable dynamic expansion
-                    cwd: 'src/',                   // Src matches are relative to this path
-                    src: ['**/*.{png,jpg,gif}'],   // Actual patterns to match
-                    dest: 'dist/'                  // Destination path prefix
-                }]
+                files: [
+                    {
+                        expand: true,                  // Enable dynamic expansion
+                        cwd: 'assets/src/images',                   // Src matches are relative to this path
+                        src: ['**/*.{png,jpg,gif}'],   // Actual patterns to match
+                        dest: 'assets/dist/images'                  // Destination path prefix
+                    }
+                ]
+            }
+        },
+        sass: {
+            dist: {
+                options: {
+                    style: 'uncompressed'
+                },
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'assets/src/',
+                        src: ['*.scss'],
+                        dest: 'assets/dist/css/',
+                        ext: '_' + version + '.css'
+                    }
+                ]
+            }
+        },
+        favicons: {
+            options: {},
+            icons: {
+                src: 'assets/src/images/favicon/favicon.png',
+                dest: 'assets/dist/images/favicon'
+            }
+        },
+        uglify: {
+            my_target: {
+                options: {
+                    sourceMap: true,
+                    sourceMapName: 'path/to/sourcemap.map'
+                },
+                files: {
+                    'assets/dist/js/main.js': ['src/input.js']
+                }
+            }
+        },
+        "file-creator": {
+            "basic": {
+                "views/_version.twig": function (fs, fd, done) {
+                    fs.writeSync(fd, '{% set version = "' + version + '" %}');
+                    done();
+                }
             }
         }
 
+
     });
-    grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-contrib-coffee');
+    grunt.loadNpmTasks('grunt-favicons');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-file-creator');
+    grunt.loadNpmTasks('grunt-contrib-clean');
     // Default task(s).
-    grunt.registerTask('default', ['less', 'imagemin']);
+    grunt.registerTask('default', ['clean','imagemin', 'coffee', 'sass', 'favicons', 'uglify', 'file-creator']);
 };
