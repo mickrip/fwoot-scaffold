@@ -1,5 +1,6 @@
 {
     "name": "mickrip/fwoot-scaffold",
+    "version": "0.2",
     "description": "Fwoot Scaffolding default for project.",
     "type": "project",
     "keywords": ["framework", "fwoot"],
