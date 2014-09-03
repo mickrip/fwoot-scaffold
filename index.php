@@ -14,8 +14,8 @@ Config::set("env", Config::get("env", "application.php"));
 
 // Switch on Debug Mode
 if (Config::get("env", "application.php") == Config::DEVELOPMENT) {
-	Debugger::enable(Debugger::DEVELOPMENT);
-	Debugger::$strictMode = true;
+    Debugger::enable(Debugger::DEVELOPMENT);
+    Debugger::$strictMode = true;
 }
 
 // Config
@@ -25,7 +25,7 @@ Config::set("cdn", Config::get("cdn", "application.php"));
 
 // Modules
 foreach (Config::get("modules", "application.php") as $module_name) {
-	\Fw\Module::load($module_name);
+    \Fw\Module::load($module_name);
 }
 
 // Runs all begin functions in all declared modules

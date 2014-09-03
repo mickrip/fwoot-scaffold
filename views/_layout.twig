@@ -42,13 +42,15 @@
         <!--/.nav-collapse -->
     </div>
 </div>
-
 {% block content %}
 
 {% endblock %}
 
 {% block javascript %}
-    <script src="//192.168.1.60:35729/livereload.js"></script>
+    {% if is_dev %}
+    <script src="//{{ server_ip }}:35729/livereload.js"></script>
+    {% endif %}
+
     <script src="{{ assets }}/{{ fw.version }}/js/main.min.js"></script>
 
     <script>
