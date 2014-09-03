@@ -1,4 +1,5 @@
-$(document).ready ->
+helloworld  = ->
   foo = "bar"
   alert "Hello " + foo
   return
+

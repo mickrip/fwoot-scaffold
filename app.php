@@ -4,13 +4,7 @@
  */
 
 \Fw\Twig::global_data("base", \Fw\Config::get("base"));
-
-if (\Fw\Config::get("env", "application.php") == \Fw\Config::DEVELOPMENT) {
-    \Fw\Twig::global_data("assets", \Fw\Config::get("base") . "/" . "assets/dist");
-} else {
-    \Fw\Twig::global_data("assets", \Fw\Config::get("base") . "/" . "assets/dist");
-}
-
+\Fw\Twig::global_data("assets", \Fw\Config::get("base") . "assets/build");
 
 \Fw\Fwouter::init(
     array("base" => \Fw\Config::get("base"))

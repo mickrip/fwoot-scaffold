@@ -13,12 +13,16 @@
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-coffee": "^0.11.1",
     "grunt-contrib-compass": "^0.9.1",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-cssmin": "^0.10.0",
     "grunt-contrib-imagemin": "^0.8.1",
     "grunt-contrib-less": "^0.11.4",
     "grunt-contrib-sass": "^0.8.1",
     "grunt-contrib-uglify": "^0.5.1",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-file-creator": "^0.1.2",
+    "grunt-libsass": "^0.2.0",
     "imagemin-mozjpeg": "^1.0.0"
   },
   "dependencies": {

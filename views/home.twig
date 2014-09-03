@@ -2,6 +2,14 @@
 {% set menu = 'home' %}
 {% extends '_layout.twig' %}
 {% block content %}
+    <div class="container">
     <h1>Welcome to Fw00!!t</h1>
     <p>Looks like things are working.</p>
+    </div>
+{% endblock %}
+{% block javascript %}
+    {{ parent() }}
+    <script>
+        page_home();
+    </script>
 {% endblock %}
